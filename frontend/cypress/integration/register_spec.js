@@ -6,7 +6,7 @@ describe("Registration", () => {
       // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
       onBeforeLoad(win) {
         win.fetch = null;
-      }
+      },
     });
   });
 
@@ -18,7 +18,7 @@ describe("Registration", () => {
     const newUser = {
       username: "tester",
       email: "tester@mail.com",
-      password: "easy-password"
+      password: "easy-password",
     };
 
     cy.route("POST", /.*\/api\/users/, {
@@ -30,8 +30,8 @@ describe("Registration", () => {
         username: newUser.username,
         bio: null,
         image: null,
-        token: "jwt"
-      }
+        token: "jwt",
+      },
     }).as("postUser");
 
     cy.get('input[placeholder="Username"]').type(newUser.username);
@@ -57,10 +57,10 @@ describe("Registration", () => {
           username: [
             "can not be blank",
             "is too short (minimum is 1 character)",
-            "is too long (maximum is 20 characters)"
-          ]
-        }
-      }
+            "is too long (maximum is 20 characters)",
+          ],
+        },
+      },
     }).as("postUser");
 
     cy.get(".auth-page form").submit();

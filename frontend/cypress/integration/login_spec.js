@@ -5,7 +5,7 @@ describe("Sign in", () => {
       // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
       onBeforeLoad(win) {
         win.fetch = null;
-      }
+      },
     });
   });
 
@@ -19,8 +19,8 @@ describe("Sign in", () => {
       url: /.*\/api\/users/,
       status: 422,
       response: {
-        errors: { "email or password": ["is invalid"] }
-      }
+        errors: { "email or password": ["is invalid"] },
+      },
     }).as("postUser");
 
     cy.get('input[placeholder="Email"]').type("tester@mail.com");
@@ -34,7 +34,7 @@ describe("Sign in", () => {
     const registeredUser = {
       username: "tester",
       email: "tester@mail.com",
-      password: "easy-password"
+      password: "easy-password",
     };
 
     cy.route("POST", /.*\/api\/users/, {
@@ -46,8 +46,8 @@ describe("Sign in", () => {
         username: registeredUser.username,
         bio: null,
         image: null,
-        token: "jwt"
-      }
+        token: "jwt",
+      },
     }).as("postUser");
 
     cy.get('input[placeholder="Email"]').type(registeredUser.email);

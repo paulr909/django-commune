@@ -16,3 +16,8 @@ npm-debug.log
 .idea
 
 .eslintcache
+
+cypress/downloads
+cypress/screenshots
+cypress/plugins
+cypress/support

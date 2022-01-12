@@ -5,7 +5,7 @@ describe("Post", () => {
       // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
       onBeforeLoad(win) {
         win.fetch = null;
-      }
+      },
     });
     cy.route("POST", /.*\/api\/articles/, {
       article: {
@@ -22,11 +22,11 @@ describe("Post", () => {
           username: "Tester",
           bio: null,
           image: "https://avatars1.githubusercontent.com/u/47115670?s=400&v=4",
-          following: false
+          following: false,
         },
         favored: false,
-        favoritesCount: 0
-      }
+        favoritesCount: 0,
+      },
     }).as("postArticle");
 
     cy.get('input[placeholder="Article Title"]').type("React JS");

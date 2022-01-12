@@ -10,11 +10,9 @@ describe("Homepage", () => {
       // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
       onBeforeLoad(win) {
         win.fetch = null;
-      }
+      },
     });
-    cy.get("button.nav-link")
-      .contains("Global Feed")
-      .click();
+    cy.get("button.nav-link").contains("Global Feed").click();
     // cy.wait(["@loadArticles"]);
   });
 
@@ -31,9 +29,7 @@ describe("Homepage", () => {
       cy.get("@navbar").within(() => {
         cy.get("a").as("navbarButtons");
 
-        cy.get("@navbarButtons")
-          .its("length")
-          .should("be.gte", 4);
+        cy.get("@navbarButtons").its("length").should("be.gte", 4);
         cy.get("@navbarButtons")
           .contains("commune")
           .should("have.attr", "href", "/");
@@ -53,12 +49,8 @@ describe("Homepage", () => {
       cy.get(".banner").as("banner");
 
       cy.get("@banner").within(() => {
-        cy.get("h1")
-          .contains("commune")
-          .should("be.visible");
-        cy.get("p")
-          .contains("For like minded people.")
-          .should("be.visible");
+        cy.get("h1").contains("commune").should("be.visible");
+        cy.get("p").contains("For like minded people.").should("be.visible");
       });
     });
 
@@ -67,15 +59,13 @@ describe("Homepage", () => {
 
       cy.get("@main").within(() => {
         cy.get(".feed-toggle").contains("Global Feed");
-        cy.get("button.nav-link")
-          .contains("Global Feed")
-          .click();
+        cy.get("button.nav-link").contains("Global Feed").click();
         cy.get(".article-preview")
           .as("articles")
           .its("length")
           .should("be.lte", 10);
 
-        cy.get("@articles").each($el => {
+        cy.get("@articles").each(($el) => {
           cy.wrap($el).as("preview");
           cy.get("@preview").get("a > img");
           cy.get("@preview").get(".info > a, .info > span");
@@ -105,9 +95,7 @@ describe("Homepage", () => {
     });
 
     it("Should navigate to Global Feed", () => {
-      cy.get("button.nav-link")
-        .contains("Global Feed")
-        .click();
+      cy.get("button.nav-link").contains("Global Feed").click();
 
       cy.location("pathname").should("be.equal", "/");
       cy.get("button").contains("Global Feed");
@@ -121,18 +109,14 @@ describe("Homepage", () => {
     });
 
     it("Should navigate to Login page", () => {
-      cy.get("a.nav-link")
-        .contains("Sign in")
-        .click();
+      cy.get("a.nav-link").contains("Sign in").click();
 
       cy.location("pathname").should("be.equal", "/login");
       cy.get("h1").contains("Sign In");
     });
 
     it("Should navigate to Register page", () => {
-      cy.get("a.nav-link")
-        .contains("Sign up")
-        .click();
+      cy.get("a.nav-link").contains("Sign up").click();
 
       cy.location("pathname").should("be.equal", "/register");
       cy.get("h1").contains("Sign Up");
