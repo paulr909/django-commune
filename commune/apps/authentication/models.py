@@ -2,8 +2,11 @@ from datetime import datetime, timedelta
 
 import jwt
 from django.conf import settings
-from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
-                                        PermissionsMixin)
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 from django.db import models
 
 from commune.apps.core.models import TimestampedModel
@@ -59,13 +62,13 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
 
     # We also need a way to contact the user and a way for the user to identify
     # themselves when logging in. Since we need an email address for contacting
-    # the user anyways, we will also use the email for logging in because it is
+    # the user anyway, we will also use the email for logging in because it is
     # the most common form of login credential at the time of writing.
     email = models.EmailField(db_index=True, unique=True)
 
     # When a user no longer wishes to use our platform, they may try to delete
     # there account. That's a problem for us because the data we collect is
-    # valuable to us and we don't want to delete it. To solve this problem, we
+    # valuable to us, and we don't want to delete it. To solve this problem, we
     # will simply offer users a way to deactivate their account instead of
     # letting them delete it. That way they won't show up on the site anymore,
     # but we can still analyze the data.
@@ -73,7 +76,7 @@ class User(AbstractBaseUser, PermissionsMixin, TimestampedModel):
 
     # The `is_staff` flag is expected by Django to determine who can and cannot
     # log into the Django admin site. For most users, this flag will always be
-    # falsed.
+    # false.
     is_staff = models.BooleanField(default=False)
 
     # More fields required by Django when specifying a custom user model.
