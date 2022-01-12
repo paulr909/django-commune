@@ -90,3 +90,9 @@ ENV/
 
 # SQLite3
 db.sqlite3
+
+# PyCharm settings
+.idea
+
+# macOS junk
+.DS_Store
