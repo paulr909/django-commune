@@ -32,7 +32,7 @@ export default (state = {}, action) => {
     case SET_PAGE:
       return {
         ...state,
-        articles: action.payload.articles,
+        articles: action.payload.articles || [],
         articlesCount: action.payload.articlesCount,
         currentPage: action.page,
       };
@@ -40,7 +40,7 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
+        articles: action.payload.articles || [],
         articlesCount: action.payload.articlesCount,
         tab: null,
         tag: action.tag,
@@ -50,9 +50,9 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        tags: action.payload && action.payload[0].tags,
-        articles: action.payload && action.payload[1].articles,
-        articlesCount: action.payload && action.payload[1].articlesCount,
+        tags: (!!action.payload[0] && action.payload[0].tags) || [],
+        articles: (!!action.payload[1] && action.payload[1].articles) || [],
+        articlesCount: !!action.payload[1] && action.payload[1].articlesCount,
         currentPage: 0,
         tab: action.tab,
       };
@@ -62,7 +62,7 @@ export default (state = {}, action) => {
       return {
         ...state,
         pager: action.pager,
-        articles: action.payload.articles,
+        articles: action.payload.articles || [],
         articlesCount: action.payload.articlesCount,
         tab: action.tab,
         currentPage: 0,
