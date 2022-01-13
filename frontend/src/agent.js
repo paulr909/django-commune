@@ -4,8 +4,8 @@ import _superagent from "superagent";
 const superagent = superagentPromise(_superagent, global.Promise);
 
 const API_ROOT =
-  process.env.REACT_APP_BACKEND_URL || "https://api.realworld.io/api";
-// process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000/api";
+  // process.env.REACT_APP_BACKEND_URL || "https://api.realworld.io/api";
+  process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:8000/api";
 
 const encode = encodeURIComponent;
 const responseBody = (res) => res.body;

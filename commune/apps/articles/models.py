@@ -36,6 +36,9 @@ class Comment(TimestampedModel):
         "profiles.Profile", related_name="comments", on_delete=models.CASCADE
     )
 
+    def __str__(self):
+        return f"{self.body} - Author: {self.author}"
+
 
 class Tag(TimestampedModel):
     tag = models.CharField(max_length=255)
