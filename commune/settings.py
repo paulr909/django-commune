@@ -7,7 +7,7 @@ SECRET_KEY = "2^f+3@v7$v1f8yt0!s)3-1t$)tlp+xm17=*g))_xoi&&9m#2a&"
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0", "127.0.0.1", "localhost"]
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -26,9 +26,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -79,25 +79,34 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 LANGUAGE_CODE = "en-uk"
-
 TIME_ZONE = "UTC"
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 STATIC_URL = "/static/"
 
-CORS_ORIGIN_WHITELIST = (
-    # build
-    "0.0.0.0:3000",
-    "localhost:3000",
+CORS_ALLOWED_ORIGINS = [
     # local
-    "0.0.0.0:4100",
-    "localhost:4100",
-)
+    "http://0.0.0.0:4100",
+    "http://127.0.0.1:4100",
+    "http://localhost:4100",
+    # build
+    "http://0.0.0.0:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+]
+CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = [
+    # local
+    "http://0.0.0.0:4100",
+    "http://127.0.0.1:4100",
+    "http://localhost:4100",
+    # build
+    "http://0.0.0.0:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3000",
+]
 
 AUTH_USER_MODEL = "authentication.User"
 
@@ -109,6 +118,8 @@ REST_FRAMEWORK = {
     ),
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 20,
+    "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
+    # "TEST_REQUEST_DEFAULT_FORMAT": "json",
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

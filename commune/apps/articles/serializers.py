@@ -19,7 +19,7 @@ class ArticleSerializer(serializers.ModelSerializer):
     tagList = TagRelatedField(many=True, required=False, source="tags")
 
     # Django REST Framework makes it possible to create a read-only field that
-    # gets it's value by calling a function. In this case, the client expects
+    # gets its value by calling a function. In this case, the client expects
     # `created_at` to be called `createdAt` and `updated_at` to be `updatedAt`.
     # `serializers.SerializerMethodField` is a good way to avoid having the
     # requirements of the client leak into our API.
