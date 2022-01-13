@@ -8,7 +8,7 @@
 
 ### React Frontend with Hooks.
 
-Run your app in a Virtual Environment: **http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.html**
+Run your app in a Virtual Environment: [http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.html](http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.htm)
 
 Install the requirements:
 ```
@@ -24,9 +24,9 @@ Run Tests with Coverage:
 python manage.py test
 ```
 
-API available @ **http://127.0.0.1:8000/api/articles**
+API available @ [http://127.0.0.1:8000/api/articles](http://127.0.0.1:8000/api/articles)
 
-Swagger API @ **http://127.0.0.1:8000/swagger/**
+Swagger API @ [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
 
 # React Redux Frontend
 

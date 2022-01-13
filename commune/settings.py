@@ -19,6 +19,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "django_extensions",
     "rest_framework",
+    "drf_yasg",
     "commune.apps.articles",
     "commune.apps.authentication",
     "commune.apps.core",
