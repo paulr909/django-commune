@@ -1,19 +1,7 @@
 describe("Homepage", () => {
   beforeEach(() => {
-    cy.server();
-    // cy.route(
-    //   /.*\/api\/articles(\?limit=(\d+)&offset=(\d+))?/,
-    //   "fixture:articles.json"
-    // ).as("loadArticles");
-
-    cy.visit("/", {
-      // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
-      onBeforeLoad(win) {
-        win.fetch = null;
-      },
-    });
+    cy.visit("/");
     cy.get("button.nav-link").contains("Global Feed").click();
-    // cy.wait(["@loadArticles"]);
   });
 
   it("Should have page title set", () => {
@@ -79,11 +67,9 @@ describe("Homepage", () => {
             });
         });
 
-        // cy.get(".pagination").within(() => {
-        //   cy.get(".page-item")
-        //     .its("length")
-        //     .should("be.gt", 1);
-        // });
+        cy.get(".pagination").within(() => {
+          cy.get(".page-item").its("length").should("be.gt", 1);
+        });
       });
     });
   });
@@ -122,42 +108,21 @@ describe("Homepage", () => {
       cy.get("h1").contains("Sign Up");
     });
 
-    // it("Should navigate to first article", () => {
-    //   const slug = "get-that-dog-out-of-here";
-    //   const title = "Get that dog out of here";
-    //
-    //   cy.getArticle(slug).as("articleLoaded");
-    //   cy.route(/.*\/api\/articles\/[\w-]+/, "@articleLoaded").as("loadArticle");
-    //   cy.route(
-    //     /.*\/api\/articles\/[\w-]+\/comments/,
-    //     "fixture:comments.json"
-    //   ).as("loadComments");
-    //   cy.get("button.nav-link")
-    //     .contains("Global Feed")
-    //     .click();
-    //   cy.get(".preview-link")
-    //     .eq(0)
-    //     .contains("Read more...")
-    //     .click();
-    //   cy.wait(["@loadArticle", "@loadComments"]);
-    //
-    //   cy.location("pathname").should("match", /\/article\/[\w-]+/);
-    //   cy.get("h1").contains(title);
-    // });
+    it("Should navigate to first article", () => {
+      const slug = "bmw-m2-competition-4hczqv";
+      const title = "BMW M2 Competition";
 
-    // it("Should navigate to next page", () => {
-    //   cy.get(".page-item")
-    //     .contains("2")
-    //     .as("nextPage");
-    //   cy.get("@nextPage").click();
-    //   cy.get("@nextPage")
-    //     .parent()
-    //     .should("have.class", "active");
-    //   cy.get("@nextPage")
-    //     .parent()
-    //     .siblings(":not(.active)")
-    //     .its("length")
-    //     .should("be", 0);
-    // });
+      cy.get("button.nav-link").contains("Global Feed").click();
+      cy.get(".preview-link").eq(0).contains("Read more...").click();
+
+      cy.location("pathname").should("match", /\/article\/[\w-]+/);
+      cy.get("h1").contains(title);
+    });
+
+    it("Should navigate to next page", () => {
+      cy.get(".page-item").contains("2").as("nextPage");
+      cy.get("@nextPage").click();
+      cy.get("@nextPage").parent().should("have.class", "active");
+    });
   });
 });

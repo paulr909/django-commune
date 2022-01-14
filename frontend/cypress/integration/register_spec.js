@@ -1,13 +1,7 @@
 describe("Registration", () => {
   beforeEach(() => {
     cy.server();
-
-    cy.visit("/register", {
-      // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
-      onBeforeLoad(win) {
-        win.fetch = null;
-      },
-    });
+    cy.visit("/register");
   });
 
   it("Should have page title", () => {

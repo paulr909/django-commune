@@ -21,3 +21,4 @@ cypress/downloads
 cypress/screenshots
 cypress/plugins
 cypress/support
+cypress/videos

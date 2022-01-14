@@ -49,7 +49,12 @@ Serve production build:
 serve -s build
 ```
 
-Run End-to-end tests with Cypress:
+Run e2e tests with Cypress:
 ```
 npm run cypress:open
+```
+
+Run headless browser e2e tests with Cypress:
+```shell
+./node_modules/.bin/cypress run
 ```

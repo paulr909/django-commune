@@ -1,12 +1,7 @@
 describe("Post", () => {
   it("Should create new post", () => {
     cy.server();
-    cy.visit("/editor", {
-      // see https://github.com/cypress-io/cypress/issues/95#issuecomment-281273126
-      onBeforeLoad(win) {
-        win.fetch = null;
-      },
-    });
+    cy.visit("/editor");
     cy.route("POST", /.*\/api\/articles/, {
       article: {
         title: "React JS",
@@ -15,8 +10,8 @@ describe("Post", () => {
           "Build encapsulated components that manage their own state, then compose them to make complex UIs.\n" +
           "\n" +
           "Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.",
-        createdAt: "2018-10-13T18:20:22.858Z",
-        updatedAt: "2018-10-13T18:20:22.858Z",
+        createdAt: "2021-10-13T18:20:22.858Z",
+        updatedAt: "2021-10-13T18:20:22.858Z",
         description: "A JavaScript library for building user interfaces",
         author: {
           username: "Tester",
