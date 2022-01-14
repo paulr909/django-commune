@@ -37,7 +37,7 @@ class FollowUserTestCase(APITestCase):
                 "profile": {
                     "username": "jenny",
                     "bio": "",
-                    "image": "",
+                    "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
                     "following": True,
                 }
             },
@@ -46,7 +46,12 @@ class FollowUserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(
             response.data,
-            {"username": "jenny", "bio": "", "image": "", "following": True},
+            {
+                "username": "jenny",
+                "bio": "",
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": True,
+            },
         )
 
     def test_user_can_unfollow_other_user(self):
@@ -57,7 +62,7 @@ class FollowUserTestCase(APITestCase):
                 "profile": {
                     "username": "jenny",
                     "bio": "",
-                    "image": "",
+                    "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
                     "following": False,
                 }
             },
@@ -66,5 +71,10 @@ class FollowUserTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             response.data,
-            {"username": "jenny", "bio": "", "image": "", "following": False},
+            {
+                "username": "jenny",
+                "bio": "",
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": False,
+            },
         )
