@@ -120,7 +120,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.LimitOffsetPagination",
     "PAGE_SIZE": 20,
     "DEFAULT_RENDERER_CLASSES": ("rest_framework.renderers.JSONRenderer",),
-    # "TEST_REQUEST_DEFAULT_FORMAT": "json",
 }
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
