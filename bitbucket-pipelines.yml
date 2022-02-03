@@ -30,7 +30,6 @@ pipelines:
           - cypress
         image: cypress/base:10
         script:
-          - npm ci
           - npm run cypress
         artifacts:
           - cypress/reports/**
