@@ -3,8 +3,40 @@ image: python:3.8
 pipelines:
   default:
     - step:
+        name: Build and Test Django
         caches:
           - pip
         script:
           - pip install -r requirements.txt
           - python manage.py test
+
+    - step:
+        name: Build and Test React
+        image: node:10.19.0
+        trigger: manual
+        caches:
+          - node
+        script:
+          - cd frontend
+          - rm -rf package-lock.json
+          - rm -rf node_modules
+          - npm install
+          - npm run build
+
+    - step:
+        name: Build and Test Cypress E2E
+        caches:
+          - npm
+          - cypress
+        image: cypress/base:10
+        script:
+          - npm ci
+          - npm run cypress
+        artifacts:
+          - cypress/reports/**
+          - cypress/videos/**
+
+    definitions:
+      caches:
+        npm: $HOME/.npm
+        cypress: $HOME/.cache/Cypress
