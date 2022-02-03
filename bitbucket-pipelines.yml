@@ -22,21 +22,21 @@ pipelines:
           - npm install
           - npm run build
 
-    - step:
-        name: Build and Test Cypress E2E
-        caches:
-          - node
-        image: node:latest
-        script:
-          - cd frontend
-          - npm ci
-          - npm run start:ci &
-          - npm run e2e
-        artifacts:
-          - cypress/screenshots/**
-          - cypress/videos/**
-
-definitions:
- caches:
-   npm: $HOME/.npm
-   cypress: $HOME/.cache/Cypress
+#    - step:
+#        name: Build and Test Cypress E2E
+#        caches:
+#          - node
+#        image: node:latest
+#        script:
+#          - cd frontend
+#          - npm ci
+#          - npm run start:ci &
+#          - npm run e2e
+#        artifacts:
+#          - cypress/screenshots/**
+#          - cypress/videos/**
+#
+#definitions:
+# caches:
+#   npm: $HOME/.npm
+#   cypress: $HOME/.cache/Cypress
