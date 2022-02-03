@@ -1,3 +1,4 @@
+![Bitbucket Pipelines](https://img.shields.io/bitbucket/pipelines/paulrogers/django-commune/master)
 [![Python Version](https://img.shields.io/badge/python-3.9-brightgreen.svg)](https://python.org)
 [![Django Version](https://img.shields.io/badge/django-4.0.1-brightgreen.svg)](https://djangoproject.com)
 [![React Version](https://img.shields.io/badge/react-17.0.2-brightgreen.svg)](https://reactjs.org/)
