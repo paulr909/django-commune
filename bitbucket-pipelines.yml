@@ -31,7 +31,7 @@ pipelines:
           - cd frontend
           - npm ci
           - npm run start:ci &
-          - npx cypress run --headless
+          - npm run e2e
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
