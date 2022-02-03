@@ -29,6 +29,7 @@ pipelines:
         image: node:latest
         script:
           - cd frontend
+          - npm start
           - npm ci
           - npm run start:ci &
           - npm run e2e
