@@ -27,7 +27,7 @@ pipelines:
         caches:
           - npm
           - cypress
-        image: cypress/base:10
+        image: node:latest
         script:
           - npm ci
           - npm run start:ci &
