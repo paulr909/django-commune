@@ -29,7 +29,9 @@ pipelines:
           - cypress
         image: cypress/base:10
         script:
-          - cypress open
+          - npm ci
+          - npm run start:ci &
+          - npm run e2e
         artifacts:
           - cypress/reports/**
           - cypress/videos/**
