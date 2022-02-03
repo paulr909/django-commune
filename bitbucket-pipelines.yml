@@ -36,7 +36,7 @@ pipelines:
           - cypress/reports/**
           - cypress/videos/**
 
-    definitions:
-      caches:
-        npm: $HOME/.npm
-        cypress: $HOME/.cache/Cypress
+definitions:
+ caches:
+   npm: $HOME/.npm
+   cypress: $HOME/.cache/Cypress
