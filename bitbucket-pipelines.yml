@@ -32,8 +32,8 @@ pipelines:
           - npm run start:ci &
           - npx cypress run --browser firefox
         artifacts:
-          - frontend/cypress/screenshots/**
-          - frontend/cypress/videos/**
+          - cypress/screenshots/**
+          - cypress/videos/**
 
 definitions:
  caches:
