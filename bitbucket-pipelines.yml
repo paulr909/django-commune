@@ -13,7 +13,6 @@ pipelines:
     - step:
         name: Build and Test React
         image: node:10.19.0
-        trigger: manual
         caches:
           - node
         script:
@@ -30,7 +29,7 @@ pipelines:
           - cypress
         image: cypress/base:10
         script:
-          - npm run cypress
+          - cypress open
         artifacts:
           - cypress/reports/**
           - cypress/videos/**
