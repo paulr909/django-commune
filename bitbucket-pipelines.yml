@@ -22,20 +22,20 @@ pipelines:
           - npm install
           - npm run build
 
-    - step:
-        name: Build and Test Cypress E2E
-        caches:
-          - node
-        image: cypress/browsers:node12.14.1-chrome85-ff81
-        script:
-          - npm ci
-          - npm run start:ci &
-          - npx cypress run --browser firefox
-        artifacts:
-          - cypress/screenshots/**
-          - cypress/videos/**
-
-definitions:
- caches:
-   npm: $HOME/.npm
-   cypress: $HOME/.cache/Cypress
+#    - step:
+#        name: Build and Test Cypress E2E
+#        caches:
+#          - node
+#        image: cypress/browsers:node12.14.1-chrome85-ff81
+#        script:
+#          - npm ci
+#          - npm run start:ci &
+#          - npx cypress run --browser firefox
+#        artifacts:
+#          - cypress/screenshots/**
+#          - cypress/videos/**
+#
+#definitions:
+# caches:
+#   npm: $HOME/.npm
+#   cypress: $HOME/.cache/Cypress
