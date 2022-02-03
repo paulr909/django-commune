@@ -26,11 +26,12 @@ pipelines:
         name: Build and Test Cypress E2E
         caches:
           - node
-        image: cypress/browsers:node12.14.1-chrome85-ff81
+        image: node:latest
         script:
+          - cd frontend
           - npm ci
           - npm run start:ci &
-          - npx cypress run --browser firefox
+          - npx cypress run --headless
         artifacts:
           - cypress/screenshots/**
           - cypress/videos/**
