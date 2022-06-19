@@ -12,15 +12,15 @@
 Run your app in a Virtual Environment: [http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.html](http://python-guide-ru.readthedocs.io/en/latest/dev/virtualenvs.htm)
 
 Install the requirements:
-```
+```shell
 pip install -r requirements.txt
-```
+```shell
 Run the development server:
-```
+```shell
 python manage.py runserver
-```
+```shell
 Run Tests with Coverage:
-```
+```shell
 python manage.py test
 ```
 
@@ -31,27 +31,27 @@ Swagger API @ [http://127.0.0.1:8000/swagger/](http://127.0.0.1:8000/swagger/)
 # React Redux Frontend
 
 Install React, Redux:
-```
+```shell
 npm i
 ```
 
 Run development build:
-```
+```shell
 yarn start
 ```
 
 Run production build:
-```
+```shell
 yarn run build
 ```
 
 Serve production build:
-```
+```shell
 serve -s build
 ```
 
 Run e2e tests with Cypress:
-```
+```shell
 yarn cypress open
 ```
 
