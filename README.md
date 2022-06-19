@@ -37,12 +37,12 @@ npm i
 
 Run development build:
 ```
-npm start
+yarn start
 ```
 
 Run production build:
 ```
-npm run build
+yarn run build
 ```
 
 Serve production build:
@@ -52,10 +52,10 @@ serve -s build
 
 Run e2e tests with Cypress:
 ```
-npm run cypress:open
+yarn cypress open
 ```
 
 Run headless browser e2e tests with Cypress:
 ```shell
-./node_modules/.bin/cypress run
+yarn cypress run
 ```
