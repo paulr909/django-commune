@@ -1,11 +1,11 @@
 import ListErrors from "./ListErrors";
 import React from "react";
 import agent from "../agent";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import {
-  SETTINGS_SAVED,
-  SETTINGS_PAGE_UNLOADED,
   LOGOUT,
+  SETTINGS_PAGE_UNLOADED,
+  SETTINGS_SAVED,
 } from "../constants/actionTypes";
 
 class SettingsForm extends React.PureComponent {

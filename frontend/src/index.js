@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
+import {Provider} from "react-redux";
 import React from "react";
-import { store, history } from "./store";
+import {history, store} from "./store";
 
-import { Route, Switch } from "react-router-dom";
-import { ConnectedRouter } from "connected-react-router";
+import {Route, Switch} from "react-router-dom";
+import {ConnectedRouter} from "connected-react-router";
 
 import App from "./components/App";
 

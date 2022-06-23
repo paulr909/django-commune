@@ -1,11 +1,11 @@
-import { applyMiddleware, createStore } from "redux";
-import { createLogger } from "redux-logger";
-import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
-import { promiseMiddleware, localStorageMiddleware } from "./middleware";
+import {applyMiddleware, createStore} from "redux";
+import {createLogger} from "redux-logger";
+import {composeWithDevTools} from "redux-devtools-extension/developmentOnly";
+import {localStorageMiddleware, promiseMiddleware} from "./middleware";
 import createRootReducer from "./reducer";
 
-import { routerMiddleware } from "connected-react-router";
-import { createBrowserHistory } from "history";
+import {routerMiddleware} from "connected-react-router";
+import {createBrowserHistory} from "history";
 
 export const history = createBrowserHistory();
 

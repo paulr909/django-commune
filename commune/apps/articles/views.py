@@ -1,16 +1,22 @@
-from rest_framework import generics, mixins, status, viewsets
+from rest_framework import generics
+from rest_framework import mixins
+from rest_framework import status
+from rest_framework import viewsets
 from rest_framework.exceptions import NotFound
-from rest_framework.permissions import (
-    AllowAny,
-    IsAuthenticated,
-    IsAuthenticatedOrReadOnly,
-)
+from rest_framework.permissions import AllowAny
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .models import Article, Comment, Tag
-from .renderers import ArticleJSONRenderer, CommentJSONRenderer
-from .serializers import ArticleSerializer, CommentSerializer, TagSerializer
+from .models import Article
+from .models import Comment
+from .models import Tag
+from .renderers import ArticleJSONRenderer
+from .renderers import CommentJSONRenderer
+from .serializers import ArticleSerializer
+from .serializers import CommentSerializer
+from .serializers import TagSerializer
 
 
 class ArticleViewSet(

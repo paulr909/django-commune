@@ -1,13 +1,15 @@
 import agent from "../agent";
 import Header from "./Header";
-import React, { lazy, Suspense } from "react";
-import { connect } from "react-redux";
-import { APP_LOAD, REDIRECT } from "../constants/actionTypes";
-import { Route, Switch } from "react-router-dom";
-import { store } from "../store";
-import { push } from "connected-react-router";
+import React, {lazy, Suspense} from "react";
+import {connect} from "react-redux";
+import {APP_LOAD, REDIRECT} from "../constants/actionTypes";
+import {Route, Switch} from "react-router-dom";
+import {store} from "../store";
+import {push} from "connected-react-router";
 // const Home = lazy(() => import('../components/Home'/* webpackChunkName: "Home", webpackPreload: true  */))
 import Home from "../components/Home";
+import "./App.css";
+
 const Article = lazy(() =>
   import(
     "../components/Article" /* webpackChunkName: "Article", webpackPrefetch: true  */
@@ -43,7 +45,6 @@ const Settings = lazy(() =>
     "../components/Settings" /* webpackChunkName: "Settings", webpackPrefetch: true  */
   )
 );
-import "./App.css";
 
 const mapStateToProps = (state) => {
   return {

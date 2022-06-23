@@ -1,7 +1,7 @@
 import agent from "./agent";
 import {
-  ASYNC_START,
   ASYNC_END,
+  ASYNC_START,
   LOGIN,
   LOGOUT,
   REGISTER,

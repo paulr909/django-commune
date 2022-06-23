@@ -1,14 +1,9 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
-from .views import (
-    ArticlesFavoriteAPIView,
-    ArticlesFeedAPIView,
-    ArticleViewSet,
-    CommentsDestroyAPIView,
-    CommentsListCreateAPIView,
-    TagListAPIView,
-)
+from .views import (ArticlesFavoriteAPIView, ArticlesFeedAPIView,
+                    ArticleViewSet, CommentsDestroyAPIView,
+                    CommentsListCreateAPIView, TagListAPIView)
 
 router = DefaultRouter(trailing_slash=False)
 router.register(r"articles", ArticleViewSet)

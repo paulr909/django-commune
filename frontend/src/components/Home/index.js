@@ -3,11 +3,11 @@ import MainView from "./MainView";
 import React from "react";
 import Tags from "./Tags";
 import agent from "../../agent";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import {
+  APPLY_TAG_FILTER,
   HOME_PAGE_LOADED,
   HOME_PAGE_UNLOADED,
-  APPLY_TAG_FILTER,
 } from "../../constants/actionTypes";
 
 const Promise = global.Promise;
